@@ -4,7 +4,7 @@
  * @Author: yang_ft
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
- * @LastEditTime : 2019-12-23 14:57:57
+ * @LastEditTime : 2019-12-27 18:41:46
  -->
 # vue_pc_project
 
@@ -75,3 +75,5 @@ password:123456
 
     首先我们创建一个login分支并且切换过去`git checkout -b login`
     查看分支`git branch`
+    切换分支`git checkout master`
+    合并分支`git merge  login`
