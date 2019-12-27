@@ -5,7 +5,7 @@
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
 <<<<<<< HEAD
- * @LastEditTime : 2019-12-27 18:41:46
+ * @LastEditTime : 2019-12-27 18:47:31
 =======
  * @LastEditTime : 2019-12-27 18:36:52
 >>>>>>> login
@@ -53,7 +53,10 @@ pc后台管理项目是给企业用的。管理员。
 
 接口跑起来之后，可以进行接口测试
 >   http://127.0.0.1:8888/api/private/v1/login
-username:admin
+
+
+username:admin      
+
 password:123456
 
 ![](https://raw.githubusercontent.com/famensaodiseng/Warehouse/master/Rlf4LM.png?token=AD7VZ776FWCH4JZVT7QMWL26ABQUY)
