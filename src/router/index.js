@@ -4,12 +4,14 @@
  * @Author: yang_ft
  * @Date: 2019-12-23 14:19:59
  * @github: famensaodiseng
- * @LastEditTime : 2019-12-27 18:24:43
+ * @LastEditTime : 2020-01-02 15:43:03
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../components/Login.vue'
 import Home from '../components/Home.vue'
+import Welcome from '../components/Welcome.vue'
+import Users from '../components/user/Users.vue'
 import '../assets/css/global.css'
 Vue.use(VueRouter)
 
@@ -17,7 +19,15 @@ const router = new VueRouter({
   routes: [
     { path: '/', redirect: '/Login' },
     { path: '/login', component: Login },
-    { path: '/home', component: Home }
+    {
+      path: '/home',
+      component: Home,
+      redirect: '/welcome',
+      children: [
+        { path: '/welcome', component: Welcome },
+        { path: '/users', component: Users }
+      ]
+    }
   ]
 })
 router.beforeEach((to, from, next) => {

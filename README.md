@@ -5,7 +5,7 @@
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
 <<<<<<< HEAD
- * @LastEditTime : 2019-12-27 18:47:31
+ * @LastEditTime : 2020-01-03 21:56:08
 =======
  * @LastEditTime : 2019-12-27 18:36:52
 >>>>>>> login
@@ -51,12 +51,10 @@ pc后台管理项目是给企业用的。管理员。
 
 #### 后台接口再vue_api_server中,开启步骤见文件
 
-接口跑起来之后，可以进行接口测试
+接口跑起来之后，可以用postman进行接口测试
 >   http://127.0.0.1:8888/api/private/v1/login
 
-
 username:admin      
-
 password:123456
 
 ![](https://raw.githubusercontent.com/famensaodiseng/Warehouse/master/Rlf4LM.png?token=AD7VZ776FWCH4JZVT7QMWL26ABQUY)
@@ -81,16 +79,13 @@ password:123456
 #### 登陆模块
 
     首先我们创建一个login分支并且切换过去`git checkout -b login`
-<<<<<<< HEAD
     查看分支`git branch`
     切换分支`git checkout master`
     合并分支`git merge  login`
-=======
     查看当前项目中的分支`git branch`
 
 注意：由于eslint语法限制或者说vscode的问题。
 有些语句后面会加分号，或者有些单引号会变成双引号。
-
 
 
 解决：
@@ -143,3 +138,41 @@ router.beforeEach((to, from, next) => {
 #### 退出
 原理：基于token的方式退出实现是比较简单的，只需要销毁本地的token即可，这样，后续的请求就不会携带token,必须重新登陆生成一个新的token之后才可以访问页面。
 >>>>>>> login
+#### 通过接口获取菜单数据
+
+通过axios请求拦截器添加token,保证拥有获取数据的权限。
+
+```
+//axios 请求拦截
+axios.interceptors.request.use(config => {
+  // console.log(config)
+  config.headers.Authorization = window.sessionStorage.getItem('token')
+  return config
+})
+```
+有权限的api就可以发送成功请求了。
+
+
+我们再进行切换的时候发现点击一个的时候，多个都进行了折叠，那么此时，我们
+设置index，动态绑定属性。设置唯一的id.而由于id是字符串，所以后面加了‘’空字符串
+<el-submenu :index="item.id +''" v-for="item in menuList" :key="item.id">
+
+侧边栏路由的改造：
+为整个menu菜单添加一个router属性即可。接下来通过index属性可以进行跳转，此时我们选用path进行路由跳转。
+
+保持高亮的时候，我们把当前的index值保存在了sessionStorage中。
+
+
+卡片视图组局。并且使用到了栅格布局。
+
+通过作用域插槽，获取获取用户列表这一状态。
+{{scope.row}}就是这一行的属性
+
+
+操作这一列也必须通过作用域插槽来进行渲染。
+
+#### 自定义校验规则
+
+#### 添加用户的close状态，整个对话框关闭后重置表单。
+
+#### 表单提交之前一定要预校验。
