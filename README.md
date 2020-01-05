@@ -5,7 +5,7 @@
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
 <<<<<<< HEAD
- * @LastEditTime : 2020-01-03 21:56:08
+ * @LastEditTime : 2020-01-04 15:47:43
 =======
  * @LastEditTime : 2019-12-27 18:36:52
 >>>>>>> login
@@ -176,3 +176,55 @@ axios.interceptors.request.use(config => {
 #### 添加用户的close状态，整个对话框关闭后重置表单。
 
 #### 表单提交之前一定要预校验。
+
+#### 作用域插槽自定义权限等级  
+作用域插槽使用了但是报错，可以再eslintrc.js中的rules配置 `"no-unused-vars": 'off'`
+```
+ <template slot-scope="scope">
+            <el-tag v-if="scope.row.level=== '0'">一级</el-tag>
+            <el-tag type="success">二级</el-tag>
+            <el-tag type="warning">三级</el-tag>
+          </template>
+```
+
+####    权限管理
+不同的角色有不同的权限。不同的用户有不同的权限。
+
+只要不同的用户拥有了不同的角色，就可以拥有不同的权限。
+
+设置展开列,`type="expand" `
+```
+ <el-table-column type="expand" label="是否折叠" width="100px"></el-table-column>
+
+```
+#### 这里没有做角色列表页的添加，编辑和删除（后期有时间了补充）。
+
+<pre> 这个标签可以对角色下面的children标签进行美化</pre>
+
+
+####  一级，二级，三级权限
+
+思路：
+    1.首先，我们通过作用域插槽拿到了这一行角色的数据。
+    2.通过.children拿到了所有的一级权限。
+    3.通过第一次for循环渲染一级
+    4.通过第二次第三次分别渲染第二三级权限。
+
+美化，增加一个最小宽度min-width:1366px;
+
+#### 没当我删除权限列表以后，会合上，这是为什么呢？
+因为每次删除完以后，我们会重新渲染一次列表。。
+为了防止关上窗口，不要进行this.getRolesList()重新完整渲染。
+
+
+####  通过递归的形式，获取角色下所有三级权限的id，并保存到数组中defKeys
+
+```
+getLeafKeys(node, arr) {
+      //如果当前node节点不包含children属性，则是三级节点
+      if (!node.children) {
+        return arr.push(node.id)
+      }
+      node.children.forEach(item => this.getLeafKeys(item, arr))
+    }
+```
