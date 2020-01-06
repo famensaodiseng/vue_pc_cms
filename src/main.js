@@ -4,12 +4,13 @@
  * @Author: yang_ft
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
- * @LastEditTime : 2019-12-30 14:32:28
+ * @LastEditTime : 2020-01-05 16:06:52
  */
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import './plugins/element.js'
+import TreeTable from 'vue-table-with-tree-grid'
 import axios from 'axios'
 Vue.prototype.$http = axios
 axios.defaults.baseURL = 'http://127.0.0.1:8888/api/private/v1/'
@@ -19,7 +20,7 @@ axios.interceptors.request.use(config => {
   return config
 })
 Vue.config.productionTip = false
-
+Vue.component('tree-table', TreeTable)
 new Vue({
   router,
   render: h => h(App)

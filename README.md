@@ -5,7 +5,7 @@
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
 <<<<<<< HEAD
- * @LastEditTime : 2020-01-04 15:47:43
+ * @LastEditTime : 2020-01-05 16:22:02
 =======
  * @LastEditTime : 2019-12-27 18:36:52
 >>>>>>> login
@@ -228,3 +228,11 @@ getLeafKeys(node, arr) {
       node.children.forEach(item => this.getLeafKeys(item, arr))
     }
 ```
+
+
+报错：Duplicate keys detected: '0'. This may cause an update error. found in
+
+原因：一个template中有两个一样的v-for, key属性冲突导致
+解决方法：
+在第二个v-for中， key属性设置一下即可：
+:key="index+1"

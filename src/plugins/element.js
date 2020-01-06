@@ -4,10 +4,10 @@
  * @Author: yang_ft
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
- * @LastEditTime : 2020-01-04 17:05:14
+ * @LastEditTime : 2020-01-06 10:16:25
  */
 import Vue from 'vue'
-import { Button, Form, Select, Option, Tree, Tag, MessageBox, Dialog, Pagination, Tooltip, Switch, Table, TableColumn, Card, Row, Col, FormItem, Input, Message, Container, Header, Aside, Main, Menu, menuItem, Submenu, Breadcrumb, BreadcrumbItem } from 'element-ui'
+import { Button, Form, Cascader, Select, Option, Tree, Tag, MessageBox, Dialog, Pagination, Tooltip, Switch, Table, TableColumn, Card, Row, Col, FormItem, Input, Message, Container, Header, Aside, Main, Menu, menuItem, Submenu, Breadcrumb, BreadcrumbItem } from 'element-ui'
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
@@ -34,6 +34,7 @@ Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Select)
 Vue.use(Option)
+Vue.use(Cascader)
 
 Vue.prototype.$message = Message
 Vue.prototype.$confirm = MessageBox.confirm
