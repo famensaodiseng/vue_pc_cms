@@ -4,7 +4,7 @@
  * @Author: yang_ft
  * @Date: 2020-01-04 09:59:26
  * @github: famensaodiseng
- * @LastEditTime : 2020-01-04 10:57:37
+ * @LastEditTime : 2020-01-06 22:14:21
  -->
 <template>
   <div>
@@ -50,7 +50,7 @@ export default {
         return this.$message.error('获取权限列表失败')
       }
       this.rightsList = res.data
-      console.log(this.rightsList)
+      // console.log(this.rightsList)
 
       //   this.$message.success('获取权限列表成功')
       //   this.getRightsList()

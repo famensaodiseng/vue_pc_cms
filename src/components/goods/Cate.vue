@@ -4,7 +4,7 @@
  * @Author: yang_ft
  * @Date: 2020-01-05 10:29:01
  * @github: famensaodiseng
- * @LastEditTime : 2020-01-06 20:51:51
+ * @LastEditTime : 2020-01-06 21:57:19
  -->
 <template>
   <div>
@@ -116,10 +116,7 @@ export default {
       addCateDialogVisible: false,
       addCateForm: { cat_name: '', cat_pid: 0, cat_level: 0 },
       addCateFormRules: {
-        cat_name: [
-          { required: true, message: '请输入分类名称', trigger: 'blur' },
-          { min: 1, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }
-        ]
+        cat_name: [{ required: true, message: '请输入分类名称', trigger: 'blur' }, { min: 1, max: 5, message: '长度在 2 到 5 个字符', trigger: 'blur' }]
       },
       columns: [
         {
@@ -160,7 +157,7 @@ export default {
     },
     parentCateChange() {
       if (this.selectedKeys.length > 0) {
-   this.addCateForm.cat_pid = this.selectedKeys[this.selectedKeys.length - 1 ]
+        this.addCateForm.cat_pid = this.selectedKeys[this.selectedKeys.length - 1]
         this.addCateForm.cat_level = this.selectedKeys.length
       } else {
         this.addCateForm.cat_pid = 0
@@ -178,10 +175,7 @@ export default {
     addCate() {
       this.$refs.addCateFormRef.validate(async valid => {
         if (!valid) return
-        const { data: res } = await this.$http.post(
-          'categories',
-          this.addCateForm
-        )
+        const { data: res } = await this.$http.post('categories', this.addCateForm)
         if (res.meta.status !== 201) {
           return this.$message.error('添加分类失败！')
         }

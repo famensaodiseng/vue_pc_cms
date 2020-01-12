@@ -5,7 +5,7 @@
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
 <<<<<<< HEAD
- * @LastEditTime : 2020-01-05 16:22:02
+ * @LastEditTime : 2020-01-09 17:54:08
 =======
  * @LastEditTime : 2019-12-27 18:36:52
 >>>>>>> login
@@ -236,3 +236,29 @@ getLeafKeys(node, arr) {
 解决方法：
 在第二个v-for中， key属性设置一下即可：
 :key="index+1"
+
+#### 参数列表
+
+由于只允许为第三级分类设置相关参数
+所以我们必须有选择商品分类的时候才可以进行参数的设置
+这里我们就用到了计算属性
+计算selectedCateKeys: [],数组的length的长度为3的时候返回布尔值，
+进行参数的禁用和启用
+
+
+
+
+
+
+
+
+#### 添加进度条效果 nprogress
+
+在发起请求之前和结束以后，NProgress.start()和NProgress.start()
+
+
+
+#### 发布优化build
+
+eg: 发布阶段是不允许有console.log的。
+此时我们可以配置一个babel插件`babel-pulgin-transfrom-remove-console`，不让进行console

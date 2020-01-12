@@ -4,7 +4,7 @@
  * @Author: yang_ft
  * @Date: 2020-01-02 15:39:15
  * @github: famensaodiseng
- * @LastEditTime : 2020-01-04 17:24:21
+ * @LastEditTime : 2020-01-06 22:14:53
  -->
 <template>
   <div>
@@ -278,7 +278,7 @@ export default {
       this.editlogVisible = true
     },
     handleCurrentChange(newPage) {
-      console.log(newPage)
+      // console.log(newPage)
       this.queryInfo.pagenum = newPage
       this.getUserList()
     },
@@ -295,7 +295,7 @@ export default {
         return this.$message.error('列表请求失败')
       }
       this.roleList = res.data
-      console.log(this.roleList)
+      // console.log(this.roleList)
 
       this.setRoleDialogVisible = true
     },
@@ -305,15 +305,11 @@ export default {
       this.userInfo = {}
     },
     async removeUserById(id) {
-      const respon = await this.$confirm(
-        '此操作将永久删除该用户, 是否继续?',
-        '提示',
-        {
-          confirmButtonText: '确定',
-          cancelButtonText: '取消',
-          type: 'warning'
-        }
-      ).catch(err => err)
+      const respon = await this.$confirm('此操作将永久删除该用户, 是否继续?', '提示', {
+        confirmButtonText: '确定',
+        cancelButtonText: '取消',
+        type: 'warning'
+      }).catch(err => err)
 
       // console.log(res)
       if (respon !== 'confirm') {
@@ -331,13 +327,10 @@ export default {
     editUserInfo() {
       this.$refs.editFormRef.validate(async valid => {
         if (!valid) return true
-        const { data: res } = await this.$http.put(
-          'users/' + this.editForm.id,
-          {
-            email: this.editForm.email,
-            mobile: this.editForm.mobile
-          }
-        )
+        const { data: res } = await this.$http.put('users/' + this.editForm.id, {
+          email: this.editForm.email,
+          mobile: this.editForm.mobile
+        })
         if (res.meta.status !== 200) {
           this.$message.error('修改用户失败')
         }
@@ -360,9 +353,7 @@ export default {
       })
     },
     async userStateChanged(userinfo) {
-      const { data: res } = await this.$http.put(
-        `users/${userinfo.id}/state/${userinfo.mg_state}`
-      )
+      const { data: res } = await this.$http.put(`users/${userinfo.id}/state/${userinfo.mg_state}`)
       if (res.meta.status !== 200) {
         userinfo.mg_state = !userinfo.mg_state
         return this.$message.error('状态更新失败')
@@ -373,10 +364,7 @@ export default {
       if (!this.selectedRoleId) {
         return this.$message.error('请选择要分配的角色')
       }
-      const { data: res } = await this.$http.put(
-        `users/${this.userInfo.id}/role`,
-        { rid: this.selectedRoleId }
-      )
+      const { data: res } = await this.$http.put(`users/${this.userInfo.id}/role`, { rid: this.selectedRoleId })
       if (res.meta.status !== 200) {
         return this.$message.error('更新角色失败！')
       }

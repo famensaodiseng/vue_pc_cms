@@ -4,7 +4,7 @@
  * @Author: yang_ft
  * @Date: 2019-12-23 14:19:59
  * @github: famensaodiseng
- * @LastEditTime : 2020-01-06 20:34:03
+ * @LastEditTime : 2020-01-12 09:41:31
  */
 module.exports = {
   root: true,
@@ -16,6 +16,9 @@ module.exports = {
     '@vue/standard'
   ],
   rules: {
+
+    "camelcase": [1, { "properties": "never" }],
+    "camelcase": ["error", { "allow": ["aa_bb"] }],
     'linebreak-style': 0,
     'linebreak-style': [0, 'windows'],
     "no-unused-vars": 'off',
