@@ -4,12 +4,15 @@
  * @Author: yang_ft
  * @Date: 2019-12-23 14:20:00
  * @github: famensaodiseng
- * @LastEditTime : 2020-01-09 13:31:54
+ * @LastEditTime : 2020-01-12 16:01:18
  */
 import Vue from 'vue'
-import { Button, Tabs, TabPane, Form, Alert, Cascader, Select, Option, Tree, Tag, MessageBox, Dialog, Pagination, Tooltip, Switch, Table, TableColumn, Card, Row, Col, FormItem, Input, Message, Container, Header, Aside, Main, Menu, menuItem, Submenu, Breadcrumb, BreadcrumbItem } from 'element-ui'
+
+import { Button, Tabs, TabPane, TimelineItem, Timeline, Form, Alert, Cascader, Select, Option, Tree, Tag, MessageBox, Dialog, Pagination, Tooltip, Switch, Table, TableColumn, Card, Row, Col, FormItem, Input, Message, Container, Header, Aside, Main, Menu, menuItem, Submenu, Breadcrumb, BreadcrumbItem } from 'element-ui'
 Vue.use(Button)
 Vue.use(TabPane)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 Vue.use(Form)
 Vue.use(FormItem)
 Vue.use(Input)

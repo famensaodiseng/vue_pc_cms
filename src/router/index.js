@@ -4,7 +4,7 @@
  * @Author: yang_ft
  * @Date: 2019-12-23 14:19:59
  * @github: famensaodiseng
- * @LastEditTime : 2020-01-06 21:05:40
+ * @LastEditTime : 2020-01-12 12:13:55
  */
 import Vue from 'vue'
 import VueRouter from 'vue-router'
@@ -16,6 +16,8 @@ import Rights from '../components/power/Rights.vue'
 import Roles from '../components/power/Roles.vue'
 import Cate from '../components/goods/Cate.vue'
 import Params from '../components/goods/Params.vue'
+import List from '../components/goods/List.vue'
+import Order from '../components/order/Order.vue'
 import '../assets/css/global.css'
 Vue.use(VueRouter)
 
@@ -33,7 +35,9 @@ const router = new VueRouter({
         { path: '/rights', component: Rights },
         { path: '/roles', component: Roles },
         { path: '/categories', component: Cate },
-        { path: '/params', component: Params }
+        { path: '/params', component: Params },
+        { path: '/goods', component: List },
+        { path: '/orders', component: Order }
       ]
     }
   ]
